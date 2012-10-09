@@ -1,7 +1,7 @@
 Summary:	Protocol definitions and daemon for D-Bus at-spi
 Name:		at-spi2-core
 Version:	2.6.0
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		Daemons
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/at-spi2-core/2.6/%{name}-%{version}.tar.xz
@@ -59,6 +59,10 @@ at-spi2 library API documentation.
 
 %prep
 %setup -q
+
+# gnome session not supported here
+sed -i -e "s| --use-gnome-session||" \
+	registryd/org.a11y.atspi.Registry.service.in
 
 %build
 %{__intltoolize}
