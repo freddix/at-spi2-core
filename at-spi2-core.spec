@@ -1,17 +1,17 @@
 Summary:	Protocol definitions and daemon for D-Bus at-spi
 Name:		at-spi2-core
-Version:	2.10.2
+Version:	2.12.0
 Release:	1
 License:	LGPL v2+
 Group:		Daemons
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/at-spi2-core/2.10/%{name}-%{version}.tar.xz
-# Source0-md5:	d4a198201f6189fb248f3edd19efe39c
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/at-spi2-core/2.12/%{name}-%{version}.tar.xz
+# Source0-md5:	b12ad0e0924706f5e7f51216241068ef
 URL:		http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-devel
 BuildRequires:	gettext-devel
-BuildRequires:	gobject-introspection-devel >= 1.38.0
+BuildRequires:	gobject-introspection-devel >= 1.40.0
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
 BuildRequires:	libtool
@@ -83,6 +83,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %find_lang %{name}
 
